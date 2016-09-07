@@ -5,7 +5,9 @@ Brood is a ceph web management dashboard.
 
 Configuration
 -----
+
 Use the following environment variables to configure brood:
+
     BROOD_ADDRESS=127.0.0.1 // DEFAULT: 0.0.0.0
     BROOD_PORT=1234 // DEFAULT: 3456
 
