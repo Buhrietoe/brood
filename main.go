@@ -19,10 +19,10 @@ package main
 import (
 	"log"
 
-	"github.com/Buhrietoe/brood/config"
+	"github.com/Buhrietoe/brood/app"
+	"github.com/Buhrietoe/brood/app/config"
 
 	"github.com/docopt/docopt-go"
-	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/fasthttp"
 )
 
@@ -60,7 +60,7 @@ func main() {
 		}
 
 		// echo := app.BuildApp(config)
-		server := echo.New()
+		server := app.BuildApp()
 		log.Printf("listening on %v\n", config.ListenString)
 		server.Run(fasthttp.New(config.ListenString))
 	}

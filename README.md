@@ -3,6 +3,11 @@ Brood
 
 Brood is a ceph web management dashboard.
 
+Development
+-----
+
+Run the **dev.sh** script to develop on brood. It will ensure you have required dependencies, build the UI, and go run brood.
+
 Configuration
 -----
 

@@ -1,5 +1,5 @@
-hash: 3be62f05698ac00bff7f588abbfb6ed35e98f14c134b7c096923b4c6f88a6f0d
-updated: 2016-09-07T13:28:45.001589377-05:00
+hash: 6cc10d0f8bb7d76bfe6b817bb2e6af4ba13acdc932dfdcbcc120ac1777654ea6
+updated: 2016-09-09T11:27:50.72534281-05:00
 imports:
 - name: github.com/docopt/docopt-go
   version: 784ddc588536785e7299f7272f39101f7faccc3f
@@ -40,7 +40,7 @@ imports:
   - color
   - log
 - name: github.com/magiconair/properties
-  version: 61b492c03cf472e0c6419be5899b8e0dc28b1b88
+  version: 0723e352fa358f9322c938cc2dadda874e9151a9
 - name: github.com/mattn/go-colorable
   version: ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8
 - name: github.com/mattn/go-isatty
@@ -54,7 +54,7 @@ imports:
 - name: github.com/pkg/errors
   version: 17b591df37844cde689f4d5813e5cea0927d8dd2
 - name: github.com/pkg/sftp
-  version: a71e8f580e3b622ebff585309160b1cc549ef4d2
+  version: 8197a2e580736b78d704be0fc47b2324c0591a32
 - name: github.com/spf13/afero
   version: 20500e2abd0d1f4564a499e83d11d6c73cd58c27
   subpackages:
@@ -76,8 +76,12 @@ imports:
   - fasthttputil
 - name: github.com/valyala/fasttemplate
   version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: github.com/xordataexchange/crypt
+  version: 0d6dc8c093c1c191f00effdfc3b2f858973f0271
+  subpackages:
+  - config
 - name: golang.org/x/crypto
-  version: 9e590154d2353f3f5e1b24da7275686040dcf491
+  version: 05d11b2ca14108dfc7f74f4f66b28c7fe92e1fd0
   subpackages:
   - curve25519
   - ed25519
@@ -92,7 +96,7 @@ imports:
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: d074c16409f4f7aae134590a94a9c82b72f1cd1e
+  version: 1e65e9bf72c307081cea196f47ef37aed17eb316
   subpackages:
   - transform
   - unicode/norm
