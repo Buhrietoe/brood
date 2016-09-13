@@ -51,6 +51,8 @@ brood
 brood.yml
 brood.json
 brood.toml
+brood.tar.xz
 static/dist/
 static/.tmp/
 static/node_modules/
+release/
