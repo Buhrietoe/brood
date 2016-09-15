@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/Buhrietoe/brood/app/config"
 	"github.com/labstack/echo"
 )
 
@@ -48,7 +49,7 @@ func BuildApp() (e *echo.Echo) {
 	// }
 	// alertsController.Init()
 
-	e.Static("/static", "static/dist")
+	e.Static("/static", config.UI)
 	e.GET("/", func(ctx echo.Context) error {
 		return ctx.Redirect(301, "/static/index.html")
 	})
