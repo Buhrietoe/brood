@@ -25,6 +25,7 @@ func BuildApp() (e *echo.Echo) {
 	// go continuousQueryService.Start()
 
 	e = echo.New()
+	e.Use(ServerHeader)
 
 	// authProvider := BuildAuthProvider(config)
 	// authMiddleware := middleware.JWTWithConfig(middleware.JWTConfig{
@@ -49,11 +50,7 @@ func BuildApp() (e *echo.Echo) {
 	// }
 	// alertsController.Init()
 
-	e.Static("/static", config.UI)
-	e.GET("/", func(ctx echo.Context) error {
-		return ctx.Redirect(301, "/static/index.html")
-	})
-
+	e.Static("/", config.UI)
 	return e
 }
 
@@ -75,3 +72,11 @@ func BuildApp() (e *echo.Echo) {
 // 	authProvider.SetSigningKey(config.Golerta.SigningKey)
 // 	return
 // }
+
+// ServerHeader adds the Brood server header to responses
+func ServerHeader(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(ctx echo.Context) error {
+		ctx.Response().Header().Set(echo.HeaderServer, "brood")
+		return next(ctx)
+	}
+}
