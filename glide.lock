@@ -1,6 +1,8 @@
 hash: 6cc10d0f8bb7d76bfe6b817bb2e6af4ba13acdc932dfdcbcc120ac1777654ea6
-updated: 2016-09-09T11:27:50.72534281-05:00
+updated: 2016-09-16T15:28:26.108335771-05:00
 imports:
+- name: github.com/dgrijalva/jwt-go
+  version: d2709f9f1f31ebcda9651b03077758c1f3a0018c
 - name: github.com/docopt/docopt-go
   version: 784ddc588536785e7299f7272f39101f7faccc3f
 - name: github.com/fsnotify/fsnotify
@@ -34,9 +36,11 @@ imports:
   - engine
   - engine/fasthttp
   - log
+  - middleware
 - name: github.com/labstack/gommon
   version: 431777a5117c8de4352a400dad1e2a55f484b189
   subpackages:
+  - bytes
   - color
   - log
 - name: github.com/magiconair/properties
