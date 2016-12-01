@@ -1,13 +1,11 @@
 package: github.com/Buhrietoe/brood
 import:
+- package: github.com/ceph/go-ceph
+  subpackages:
+  - rados
 - package: github.com/docopt/docopt-go
   version: ^0.6.2
+- package: github.com/elazarl/go-bindata-assetfs
 - package: github.com/labstack/echo
-  version: ^2.0.2
-  subpackages:
-  - engine/fasthttp
+  version: ^3.0.2
 - package: github.com/spf13/viper
-- package: github.com/xordataexchange/crypt
-  version: ^0.0.2
-  subpackages:
-  - config

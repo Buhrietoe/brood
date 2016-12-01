@@ -55,4 +55,5 @@ brood.tar.xz
 static/dist/
 static/.tmp/
 static/node_modules/
+vendor/
 release/
