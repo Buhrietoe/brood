@@ -19,11 +19,10 @@ package main
 import (
 	"log"
 
-	"github.com/Buhrietoe/brood/app"
-	"github.com/Buhrietoe/brood/app/config"
+	"github.com/Buhrietoe/brood/server"
+	"github.com/Buhrietoe/brood/server/config"
 
 	"github.com/docopt/docopt-go"
-	"github.com/labstack/echo/engine/fasthttp"
 )
 
 const version = "brood 0.1.0"
@@ -42,26 +41,30 @@ Options:
 
 func main() {
 	// Parse args
-	args, err := docopt.Parse(usage, nil, true, version, false)
-	if err != nil {
-		log.Fatalln(err)
+	args, argsErr := docopt.Parse(usage, nil, true, version, false)
+	if argsErr != nil {
+		log.Fatalln(argsErr)
 	}
 
 	log.SetPrefix("[brood] ")
 	log.Println("starting brood")
 
+	// Server command specified
 	if args["server"].(bool) {
+		// Load config
 		configFile := args["--config"].(string)
 		log.Printf("using config: %v\n", configFile)
 
-		err := config.LoadConfig(configFile)
-		if err != nil {
-			log.Fatalln(err)
+		config, configError := config.LoadConfig(configFile)
+		if configError != nil {
+			log.Printf("unable to read config file %v: %v\n", configFile, configError)
 		}
 
-		// echo := app.BuildApp(config)
-		server := app.BuildApp()
-		log.Printf("listening on %v\n", config.ListenString)
-		server.Run(fasthttp.New(config.ListenString))
+		// Build and run web server
+		serv := server.BuildServer()
+		log.Printf("listening on %v\n", config.Server.ListenString)
+		if serverError := serv.Run(config.Server.ListenString); serverError != nil {
+			log.Printf("shit broke: %v\n", serverError)
+		}
 	}
 }

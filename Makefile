@@ -13,6 +13,8 @@ build:
 build_frontend:
 	cd static; npm install
 	cd static; grunt build
+	go-bindata-assetfs -nocompress -pkg server -prefix "static" static/dist/...
+	mv bindata_assetfs.go server/
 
 run_brood:
 	go run main.go server

@@ -3,7 +3,6 @@ FROM centos:centos7
 ENV GO_VERSION go1.7.linux-amd64
 ENV BROOD_ADDRESS 0.0.0.0
 ENV BROOD_PORT 3456
-ENV BROOD_UI /usr/local/src/github.com/Buhrietoe/brood/static/dist
 
 COPY ceph.repo /etc/yum.repos.d/ceph.repo
 RUN yum install -y epel-release && \

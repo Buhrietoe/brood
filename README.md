@@ -6,10 +6,10 @@ Brood is a web management dashboard that makes running ceph with OpenShift easy.
 Cli usage
 -----
 
-  	brood server
-  	brood --config <config> server
-  	brood --help
-  	brood --version
+    brood server
+    brood --config <config> server
+    brood --help
+    brood --version
 
 Configuration
 -----
@@ -18,7 +18,6 @@ Use the following environment variables to configure brood:
 
     BROOD_ADDRESS=127.0.0.1 # DEFAULT: 0.0.0.0
     BROOD_PORT=1234 # DEFAULT: 3456
-    BROOD_UI=static # DEFAULT: static/dist; This is the path to the web assets
 
 Configuration can also be done in a json/yaml/toml file. If there is a problem reading the file, brood will continue with its defaults.
 
@@ -26,21 +25,18 @@ Configuration can also be done in a json/yaml/toml file. If there is a problem r
 
     address: 127.0.0.1
     port: 1234
-    ui: /usr/local/src/brood/static
 
 **JSON**
 
     {
       "address": "127.0.0.1",
       "port": "1234",
-      "ui": "/usr/local/src/brood/static"
     }
 
 **TOML**
 
     address = 127.0.0.1
     port = 1234
-    ui = /usr/local/src/brood/static
 
 Development
 -----
