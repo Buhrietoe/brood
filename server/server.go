@@ -16,10 +16,6 @@ func apiV1(api gin.RouterGroup) {
 	api.GET("/ping", func(c *gin.Context) {
 		c.String(200, "pong")
 	})
-
-	api.GET("/stuff", func(c *gin.Context) {
-		c.String(200, "things")
-	})
 }
 
 // func BuildApp configures the web server

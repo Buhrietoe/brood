@@ -10,6 +10,12 @@ import (
 	"github.com/Buhrietoe/brood/server"
 )
 
+var listenSocket string
+
+func init() {
+	listenSocket = "http://" + startTestServer()
+}
+
 func startTestServer() (address string) {
 	// Build web server
 	serv := server.BuildServer()
@@ -39,8 +45,17 @@ func startTestServer() (address string) {
 }
 
 func TestServerHealth(t *testing.T) {
-	listenAddress := "http://" + startTestServer() + "/ping"
-	result, err := http.Get(listenAddress)
+	result, err := http.Get(listenSocket + "/ping")
+	if err != nil {
+		t.Error(err)
+	}
+	if result.StatusCode != 200 {
+		t.Errorf("expected 200, got %v", result.StatusCode)
+	}
+}
+
+func TestAPIV1Health(t *testing.T) {
+	result, err := http.Get(listenSocket + "/api/v1/ping")
 	if err != nil {
 		t.Error(err)
 	}
