@@ -27,7 +27,7 @@ func startTestServer() (address string) {
 	}
 	err = listenSocket.Close()
 	if err != nil {
-		log.Fatalf("could not close socker for server: %s\n", err)
+		log.Fatalf("could not close socket for server: %s\n", err)
 	}
 	log.Printf("found available port: %s\n", listenSocket.Addr().String())
 
@@ -56,6 +56,16 @@ func TestServerHealth(t *testing.T) {
 
 func TestAPIV1Health(t *testing.T) {
 	result, err := http.Get(listenSocket + "/api/v1/ping")
+	if err != nil {
+		t.Error(err)
+	}
+	if result.StatusCode != 200 {
+		t.Errorf("expected 200, got %v", result.StatusCode)
+	}
+}
+
+func TestStaticSite(t *testing.T) {
+	result, err := http.Get(listenSocket + "/static/")
 	if err != nil {
 		t.Error(err)
 	}
