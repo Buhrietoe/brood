@@ -64,7 +64,7 @@ func main() {
 		serv := server.BuildServer()
 		log.Printf("listening on %v\n", config.Server.ListenString)
 		if serverError := serv.Run(config.Server.ListenString); serverError != nil {
-			log.Printf("shit broke: %v\n", serverError)
+			log.Printf("server error: %v\n", serverError)
 		}
 	}
 }
