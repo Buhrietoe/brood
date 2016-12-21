@@ -6,8 +6,10 @@ This library supports TOML version
 [v0.4.0](https://github.com/toml-lang/toml/blob/master/versions/en/toml-v0.4.0.md)
 
 [![GoDoc](https://godoc.org/github.com/pelletier/go-toml?status.svg)](http://godoc.org/github.com/pelletier/go-toml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/goadesign/goa/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/pelletier/go-toml.svg?branch=master)](https://travis-ci.org/pelletier/go-toml)
 [![Coverage Status](https://coveralls.io/repos/github/pelletier/go-toml/badge.svg?branch=master)](https://coveralls.io/github/pelletier/go-toml?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pelletier/go-toml)](https://goreportcard.com/report/github.com/pelletier/go-toml)
 
 ## Features
 
@@ -81,6 +83,23 @@ if err != nil {
 The documentation and additional examples are available at
 [godoc.org](http://godoc.org/github.com/pelletier/go-toml).
 
+## Tools
+
+Go-toml provides two handy command line tools:
+
+* `tomll`: Reads TOML files and lint them.
+
+    ```
+    go install github.com/pelletier/go-toml/cmd/tomll
+    tomll --help
+    ```
+* `tomljson`: Reads a TOML file and outputs its JSON representation.
+
+    ```
+    go install github.com/pelletier/go-toml/cmd/tomjson
+    tomljson --help
+    ```
+
 ## Contribute
 
 Feel free to report bugs and patches using GitHub's pull requests system on
@@ -98,22 +117,4 @@ You can run both of them using `./test.sh`.
 
 ## License
 
-Copyright (c) 2013 - 2016 Thomas Pelletier, Eric Anderton
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The MIT License (MIT). Read [LICENSE](LICENSE).
