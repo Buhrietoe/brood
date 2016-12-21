@@ -6,12 +6,12 @@ import (
 )
 
 func TestLoadConfig(t *testing.T) {
-	os.Setenv("BROOD_ADDRESS", "127.0.0.1")
-	os.Setenv("BROOD_PORT", "1234")
+	os.Setenv("BROOD_SERVER_ADDRESS", "127.0.0.1")
+	os.Setenv("BROOD_SERVER_PORT", "1111")
 
-	testConfig, _ := LoadConfig("")
+	testConfig := LoadConfig("")
 
-	if testConfig.Server.ListenString != "127.0.0.1:1234" {
-		t.Errorf("Config ListenString expected '127.0.0.1:1234', got %v\n", testConfig.Server.ListenString)
+	if testConfig.Server.ListenString != "127.0.0.1:1111" {
+		t.Errorf("Server ListenString expected '127.0.0.1:1111', got %v\n", testConfig.Server.ListenString)
 	}
 }

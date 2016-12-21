@@ -1,34 +1,29 @@
 package server
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/Buhrietoe/brood/server/apiv1"
+	"github.com/Buhrietoe/brood/server/middleware"
 
-// func serverHeader adds the Brood server header to responses
-func serverHeader(server string) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		c.Header("Server", server)
-	}
+	"github.com/gin-gonic/gin"
+)
+
+type Server struct {
+	Address      string
+	Port         string
+	ListenString string // Complete string of address:port to listen on
 }
 
-// func apiV1 defines v1 of the rest ap
-func apiV1(api gin.RouterGroup) {
-	api.Use(serverHeader("brood/api/v1"))
-
-	api.GET("/ping", func(c *gin.Context) {
-		c.String(200, "pong")
-	})
-}
-
-// func BuildApp configures the web server
+// BuildServer configures the web server
 func BuildServer() *gin.Engine {
+	// The 'root' routes are configured here
 
 	gin.SetMode(gin.ReleaseMode)
 
-	// Instantiate
 	// Default() automatically implements the recovery and logger middlewares
 	router := gin.Default()
 
-	// Root Middleware
-	router.Use(serverHeader("brood"))
+	// Default server header
+	router.Use(middleware.ServerHeader("brood"))
 
 	// Root redirect
 	router.GET("/", func(c *gin.Context) {
@@ -44,7 +39,7 @@ func BuildServer() *gin.Engine {
 	router.StaticFS("/static", assetFS())
 
 	// API v1 endpoint
-	apiV1(*router.Group("/api/v1"))
+	apiv1.APIV1(*router.Group("/api/v1/"))
 
 	return router
 }

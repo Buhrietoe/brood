@@ -34,11 +34,12 @@ Usage:
 	brood --version
 
 Options:
-	--config <config>            The brood config [default: /etc/brood/brood.json].
+	--config <config>            The brood config [default: /etc/brood/brood.toml].
 	--help                       Show this screen.
 	--version                    Show version.
 `
 
+// main entrypoint
 func main() {
 	// Parse args
 	args, argsErr := docopt.Parse(usage, nil, true, version, false)
@@ -53,12 +54,8 @@ func main() {
 	if args["server"].(bool) {
 		// Load config
 		configFile := args["--config"].(string)
-		log.Printf("using config: %v\n", configFile)
 
-		config, configError := config.LoadConfig(configFile)
-		if configError != nil {
-			log.Printf("unable to read config file %v: %v\n", configFile, configError)
-		}
+		config := config.LoadConfig(configFile)
 
 		// Build and run web server
 		serv := server.BuildServer()
