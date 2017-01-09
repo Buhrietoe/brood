@@ -16,8 +16,8 @@ type BroodConfig struct {
 	Auth   auth.Auth     // Auth config
 }
 
-// LoadConfig retrieves data needed to start the server
-func LoadConfig(configFile string) (config BroodConfig) {
+// Load retrieves data needed to start the server
+func Load(configFile string) (config BroodConfig) {
 	viper.SetEnvPrefix("brood")
 	viper.SetConfigType("toml")
 	viper.SetConfigName("brood")

@@ -55,7 +55,7 @@ func main() {
 		// Load config
 		configFile := args["--config"].(string)
 
-		config := config.LoadConfig(configFile)
+		config := config.Load(configFile)
 
 		// Build and run web server
 		serv := server.BuildServer()
