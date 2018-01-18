@@ -39,8 +39,15 @@ func startTestServer() (address string) {
 		}
 	}()
 
-	// It might take time to bind server socket
-	time.Sleep(time.Second)
+	// Wait until the test server is listening
+	timeout := time.Millisecond * 100
+	for {
+		conn, _ := net.DialTimeout("tcp", listenSocket.Addr().String(), timeout)
+		if conn != nil {
+			conn.Close()
+			break
+		}
+	}
 	return listenSocket.Addr().String()
 }
 

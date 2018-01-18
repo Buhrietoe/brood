@@ -1,10 +1,8 @@
-PACKAGES = $(shell go list ./... | grep -v /vendor/)
-
 deps:
 	glide install
 
 test:
-	go test -cover $(PACKAGES)
+	go test -cover ./...
 
 .PHONY: build
 build:
